@@ -1,4 +1,5 @@
 import * as Bunyan from "bunyan";
+import BunyanBlackhole from "bunyan-blackhole";
 
 import {
   isBunyan,
@@ -14,6 +15,10 @@ describe('isLogger', () => {
     expect(isLogger(Bunyan.createLogger({ name: "foo" }))).toBe(true);
   });
 
+  it('should validate bunyan-blackhole', () => {
+    expect(isLogger(BunyanBlackhole("test"))).toBe(true);
+  });
+
   it("shouldn't validate an empty object", () => {
     expect(isLogger({})).toBe(false);
   });
@@ -26,6 +31,10 @@ describe('isBunyan', () => {
 
   it('should validate Bunyan loggers', () => {
     expect(isBunyan(Bunyan.createLogger({ name: "foo" }))).toBe(true);
+  });
+
+  it('should validate bunyan-blackhole', () => {
+    expect(isBunyan(BunyanBlackhole("test"))).toBe(true);
   });
 
   it("shouldn't validate an empty object", () => {
