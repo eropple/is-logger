@@ -1,0 +1,46 @@
+{
+  "name": "@eropple/is-logger",
+  "version": "0.1.1",
+  "description": "Helper functions to determine when an object can act as a logger (and, optionally, is a Bunyan logger).",
+  "main": "dist",
+  "author": "Ed Ropple",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eropple/is-logger"
+  },
+  "private": false,
+  "scripts": {
+    "build": "yarn exec -- tsc",
+    "watch": "yarn build --watch",
+    "test": "NODE_ENV=test yarn exec jest",
+    "prepare": "yarn test && yarn build"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/jest": "^24.0.13",
+    "bunyan": "^1.8.12",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.2.0",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.0.3",
+    "@types/hapi__joi": "^15.0.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
